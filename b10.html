@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <div>
+        <label for="">1st Number : </label>
+        <input type="text" id="1st" />
+      </div>
+      <div>
+        <label for="">2st Number : </label>
+        <input type="text" id="2st" />
+      </div>
+      <input type="button" value="Mutiply" onclick="mut()" />
+      <input type="button" value="Divide" onclick="div()" />
+      <div>
+        The Result is
+        <div id="show"></div>
+      </div>
+    </form>
+
+    <script>
+      function mut() {
+        let value_1 = document.getElementById("1st").value;
+        let value_2 = document.getElementById("2st").value;
+        document.getElementById("show").innerHTML = value_1 * value_2;
+      }
+      function div() {
+        let value_1 = document.getElementById("1st").value;
+        let value_2 = document.getElementById("2st").value;
+        document.getElementById("show").innerHTML = value_1 / value_2;
+      }
+    </script>
+  </body>
+</html>
