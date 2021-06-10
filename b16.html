@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <input type="text" id="num_1" />
+      <input type="text" id="num_2" />
+      <input type="button" value="show" onclick="cal()" />
+    </div>
+    <div id="show_result"></div>
+    <script>
+      function cal() {
+        let num_1 = document.getElementById("num_1").value;
+        let num_2 = document.getElementById("num_2").value;
+        let result = 0;
+        let x1 = ~~num_1;
+        let x2 = ~~num_2;
+        x1 == x2 ? (result = (x1 + x2) * 3) : (result = x1 + x2);
+        document.getElementById("show_result").innerHTML = result;
+        document.getElementById("number").value = "";
+      }
+    </script>
+  </body>
+</html>
