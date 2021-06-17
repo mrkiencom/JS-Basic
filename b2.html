@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <input id="values" type="text" />
+      <button onclick="coppy()">Coppy</button>
+    </div>
+    <script>
+      function copyTextToClipboard(text) {
+        if (!navigator.clipboard) {
+          fallbackCopyTextToClipboard(text);
+          return;
+        }
+        navigator.clipboard.writeText(text).then(
+          function () {
+            console.log("Async: Copying to clipboard was successful!");
+          },
+          function (err) {
+            console.error("Async: Could not copy text: ", err);
+          }
+        );
+      }
+      function coppy() {
+        const values = document.getElementById("values").value;
+        console.log(values);
+        copyTextToClipboard(values);
+      }
+    </script>
+  </body>
+</html>
