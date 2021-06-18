@@ -1,12 +1,20 @@
-const functions = (obj, inherited = false) =>
-  (inherited
-    ? [...Object.keys(obj), ...Object.keys(Object.getPrototypeOf(obj))]
-    : Object.keys(obj)
-  ).filter((key) => typeof obj[key] === "function");
-function Foo() {
-  this.a = () => 1;
-  this.b = () => 2;
-}
-Foo.prototype.c = () => 3;
-console.log(functions(new Foo()));
-console.log(functions(new Foo(), true));
+const equals = (a, b) => {
+  if (a === b) return true;
+  if (a instanceof Date && b instanceof Date)
+    return a.getTime() === b.getTime();
+  if (!a || !b || (typeof a !== "object" && typeof b !== "object"))
+    return a === b;
+  if (a === null || a === undefined || b === null || b === undefined)
+    return false;
+  if (a.prototype !== b.prototype) return false;
+  let keys = Object.keys(a);
+  if (keys.length !== Object.keys(b).length) return false;
+  return keys.every((k) => equals(a[k], b[k]));
+};
+
+console.log(
+  equals(
+    { a: [2, { e: 3 }], b: [4], c: "foo" },
+    { a: [2, { e: 3 }], b: [4], c: "foo" }
+  )
+);
