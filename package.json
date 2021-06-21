@@ -1,15 +1,20 @@
 {
   "name": "test",
   "version": "1.0.0",
-  "main": "TestCircle.js",
+  "main": "Time.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "nodemon TestCircle"
+    "watch": "nodemon TestCircle",
+    "employee": "nodemon testEmployee",
+    "InvoiceItem": "node testInvoiceItem",
+    "date": "nodemon Date",
+    "time": "node Time"
   },
   "author": "",
   "license": "ISC",
-  "description": "",
   "devDependencies": {
     "nodemon": "^2.0.7"
-  }
+  },
+  "dependencies": {},
+  "description": ""
 }
